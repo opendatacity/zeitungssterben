@@ -1,0 +1,25 @@
+path, line {
+	fill: none;
+	stroke: #000;
+}
+.highlit .newspaper {
+	opacity: .05;
+	&.highlight {
+		opacity: 1;
+		path {
+			opacity: 1;
+		}
+	}
+}
+path.background {
+	stroke: #fff;
+	opacity: 0;
+}
+.axis {
+	&.y {
+		display: none;
+		path {
+			display: none;
+		}
+	}
+}
