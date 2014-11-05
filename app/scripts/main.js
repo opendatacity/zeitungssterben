@@ -1,4 +1,4 @@
-d3.tsv('/data/data.tsv', function (error, data) {
+d3.tsv('data/data.tsv', function (error, data) {
 
 var maxCopies = 0, minQuarter = Infinity, maxQuarter = 0;
 
