@@ -1,5 +1,5 @@
 'use strict';
-// generated on 2014-11-05 using generator-gulp-webapp 0.1.0
+// generated on 2014-11-06 using generator-gulp-webapp 0.1.0
 
 var gulp = require('gulp');
 
@@ -24,11 +24,6 @@ gulp.task('scripts', function () {
         .pipe($.size());
 });
 
-gulp.task('data', function () {
-    return gulp.src('app/data/*')
-        .pipe(gulp.dest('dist/data'));
-});
-
 gulp.task('html', ['styles', 'scripts'], function () {
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
@@ -49,11 +44,11 @@ gulp.task('html', ['styles', 'scripts'], function () {
 
 gulp.task('images', function () {
     return gulp.src('app/images/**/*')
-        // .pipe($.cache($.imagemin({
-        //     optimizationLevel: 3,
-        //     progressive: true,
-        //     interlaced: true
-        // })))
+        .pipe($.cache($.imagemin({
+            optimizationLevel: 3,
+            progressive: true,
+            interlaced: true
+        })))
         .pipe(gulp.dest('dist/images'))
         .pipe($.size());
 });

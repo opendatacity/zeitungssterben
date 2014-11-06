@@ -1,8 +1,9 @@
 {
-  "name": "ivw-d3",
+  "name": "ivw-decay",
   "private": true,
   "dependencies": {
     "jquery": "~1.11.0",
+    "regression-js": "~1.2.0",
     "d3": "~3.4.13"
   },
   "devDependencies": {}

@@ -1,0 +1,35 @@
+.data-sheet {
+	user-select: none;
+	cursor: default;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 1em 1.2em;
+	height: 5em;
+	font-weight: 300;
+
+	h2 {
+		font-size: 1.2em;
+	}
+	h2, strong {
+		font-weight: bold;
+	}
+	animation: blink-a .7s linear 1 normal;
+
+	&.toggle-animation {
+		animation: blink-b .7s linear 1 normal;
+	}
+}
+
+@keyframes blink-a {
+	  0% { opacity: 0; }
+	 10% { opacity: 1; }
+	 20% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes blink-b {
+	  0% { opacity: 0; }
+	 10% { opacity: 1; }
+	 20% { opacity: 0; }
+	100% { opacity: 1; }
+}

@@ -1,25 +1,26 @@
-path, line {
+path {
 	fill: none;
-	stroke: #000;
+	stroke: $base-font-color;
+	stroke-width: 6px;
 }
-.highlit .newspaper {
-	opacity: .05;
-	&.highlight {
-		opacity: 1;
-		path {
-			opacity: 1;
-		}
-	}
-}
-path.background {
-	stroke: #fff;
-	opacity: 0;
+svg {
+	position: absolute;
+	z-index: 1;
+	user-select: none;
+	cursor: default;
+	fill: $base-font-color;
+	top: 4em;
+	left: 0;
+	width: 100%;
+	height: calc(100% - 4.5em);
 }
 .axis {
-	&.y {
-		display: none;
-		path {
-			display: none;
-		}
-	}
+	&.y { display: none; }
+}
+.prediction {
+	stroke-width: 4px;
+	stroke-dasharray: 15 10;
+}
+.background {
+	opacity: .5;
 }

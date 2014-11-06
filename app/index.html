@@ -2,7 +2,7 @@
 <html class="no-js">
 	<head>
 		<meta charset="utf-8">
-		<title>ivw d3</title>
+		<title>ivw decay</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -18,15 +18,33 @@
 
 	</head>
 	<body>
-		<p class="legend hidden"></p>
+		<form action="">
+			<input type="text" id="tf-paper" placeholder="Nach Zeitung suchen" autofocus>
+		</form>
+
+		<svg preserveAspectRatio="xMidYMax">
+			<defs>
+				<filter id="svg-filter-glow">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+				</filter>
+			</defs>
+		</svg>
+
+		<div class="data-sheet hidden">
+			<h2 class="paper-title"></h2>
+			<p><strong>Halbwertszeit</strong> <span class="js-paper-halflife"></span></p>
+		</div>
+
 		<!-- build:js scripts/vendor.js -->
 		<!-- bower:js -->
 		<script src="bower_components/jquery/dist/jquery.js"></script>
 		<script src="bower_components/d3/d3.js"></script>
+		<script src="bower_components/regression-js/build/regression.min.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
 		<!-- build:js scripts/main.js -->
+		<script src="scripts/chart.js"></script>
 		<script src="scripts/main.js"></script>
 		<!-- endbuild -->
 </body>

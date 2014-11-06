@@ -1,0 +1,10 @@
+form {
+	position: relative;
+	z-index: 2;
+}
+input {
+	&::selection {
+		background-color: $base-font-color;
+		color: $base-background-color;
+	}
+}
