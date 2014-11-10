@@ -1,0 +1,40 @@
+.papers-list {
+	position: absolute;
+	z-index: 5;
+
+	top: 1.5em;
+	right: 1.5em;
+
+	width: 1.5em;
+	height: 1.5em;
+	overflow: hidden;
+	background: rgba($base-background-color, .8);
+
+	li {
+		display: none;
+		cursor: pointer;
+		padding-left: 1em;
+		text-indent: -1em;
+		&:hover {
+			background-color: $base-font-color;
+			color: $base-background-color;
+		}
+	}
+
+	&:hover {
+		bottom: 0;
+		right: 0;
+		top: 0;
+		padding: .5em;
+		overflow: auto;
+		width: 15em;
+		height: auto;
+		max-width: 80%;
+		li {
+			display: block;
+		}
+	}
+}
+.half-life {
+	font-weight: 300;
+}
