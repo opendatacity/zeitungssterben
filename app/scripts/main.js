@@ -2,48 +2,51 @@ d3.tsv('data/sales.tsv', function (err, data) {
 
 var LOG2 = Math.log(2);
 
-var papers = data.map(function (paper) {
-	var copies = [], maxCopies = 0;
-	for (key in paper) {
-		if (key !== 'name' && paper.hasOwnProperty(key)) {
-			if (paper[key] === '') continue;
-			copies.push([+key, +paper[key]]);
-			if (+paper[key] > maxCopies) maxCopies = +paper[key];
+function Point (quarter, value) {
+	this.quarter = +quarter;
+	this.absolute = +value;
+}
+function Regression (publication, max) {
+	this.first = { absolute: +publication.N0 };
+	if (max) this.first.relative = this.first.absolute / max.absolute;
+	this.lambda = +publication.lambda;
+	this.halfLife = -LOG2/publication.lambda/4;
+}
+
+var publications = data.map(function (publication) {
+	var copies = [], max, min;
+	for (column in publication) {
+		if (!publication.hasOwnProperty(column)) continue;
+		var value = publication[column];
+		if ((''+column).match(/^[0-9]+$/) && value !== '') {
+			var point = new Point(column, value);
+			copies.push(point);
+			if (!max || max.absolute < point.absolute) max = point;
+			if (!min || min.absolute > point.absolute) min = point;
 		}
 	}
-	var reg = regression('exponential', copies).equation;
-	return { title: paper.name,
-		copies: copies,
-		maxCopies: maxCopies,
-		regression: reg,
-		halfLife: -LOG2/reg[1]/4
-	};
-});
-
-papers.sort(function (a, b) {
-	return b.maxCopies - a.maxCopies;
-});
-
-var papersRel = papers.map(function (paper) {
-	var copies = paper.copies.map(function (point) {
-		return [point[0], point[1]/paper.maxCopies];
+	copies.forEach(function (point) {
+		point.relative = point.absolute/max.absolute;
 	});
-	var reg = regression('exponential', copies).equation;
 	return {
-		title: paper.title,
+		title: publication.name,
 		copies: copies,
-		maxCopies: paper.maxCopies,
-		regression: reg,
-		halfLife: paper.halfLife
+		max: max,
+		min: min,
+		regression: new Regression(publication, max)
 	};
 });
 
-$(function() { papersRel.forEach(list.add); });
+publications.sort(function (a, b) {
+	return b.max.absolute - a.max.absolute;
+});
+
+$(function() { publications.forEach(list.add); });
 
 $('form').submit(function (ev) {
 	ev.preventDefault();
-	var paperRegex = new RegExp($('#tf-paper').val(), 'i');
-	var paper = papersRel.filter(function (p) { return p.title.match(paperRegex); })[0];
-	chart.draw(paper);
+	var publicationRegex = new RegExp($('#tf-publication').val(), 'i');
+	var publication = publications.filter(function (p) { return p.title.match(publicationRegex); })[0];
+	chart.draw(publication);
 });
 });

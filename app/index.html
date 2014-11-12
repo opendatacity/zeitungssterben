@@ -19,7 +19,7 @@
 	</head>
 	<body>
 		<form action="">
-			<input type="text" id="tf-paper" placeholder="Nach Zeitung suchen" autofocus>
+			<input type="text" id="tf-publication" placeholder="Nach Zeitung suchen" autofocus>
 		</form>
 
 		<svg preserveAspectRatio="xMidYMax">
@@ -31,17 +31,16 @@
 		</svg>
 
 		<div class="data-sheet hidden">
-			<h2 class="paper-title"></h2>
-			<p><strong>Halbwertszeit</strong> <span class="js-paper-halflife"></span></p>
+			<h2 class="publication-title"></h2>
+			<p><strong>Halbwertszeit</strong> <span class="js-publication-halflife"></span></p>
 		</div>
 
-		<ul class="papers-list"></ul>
+		<ul class="publications-list"></ul>
 
 		<!-- build:js scripts/vendor.js -->
 		<!-- bower:js -->
 		<script src="bower_components/jquery/dist/jquery.js"></script>
 		<script src="bower_components/d3/d3.js"></script>
-		<script src="bower_components/regression-js/build/regression.min.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 

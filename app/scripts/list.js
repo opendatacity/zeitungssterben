@@ -1,16 +1,16 @@
 var list;
 $(function () {
-	var $ul = $('.papers-list');
+	var $ul = $('.publications-list');
 
 	$ul.on('click', 'li', function () {
-		chart.draw($(this).data('paper'));
+		chart.draw($(this).data('publication'));
 	});
 
-	function add (paper) {
+	function add (publication) {
 		$li = $('<li>');
-		$li.append('<strong>'+paper.title+'</strong>');
-		$li.append(' <span class="half-life">'+Math.round(paper.halfLife)+'</span>');
-		$li.data('paper', paper);
+		$li.append('<strong>'+publication.title+'</strong>');
+		$li.append(' <span class="half-life">'+Math.round(publication.regression.halfLife)+'</span>');
+		$li.data('publication', publication);
 		$ul.append($li);
 	}
 
