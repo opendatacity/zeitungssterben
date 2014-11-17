@@ -50,7 +50,10 @@ publications.sort(function (a, b) {
 	return b.max.absolute - a.max.absolute;
 });
 
-$(function() { publications.forEach(list.add); });
+$(function() {
+	publications.forEach(list.add);
+	modules.autocomplete.init(publications);
+});
 
 $('form').submit(function (ev) {
 	ev.preventDefault();

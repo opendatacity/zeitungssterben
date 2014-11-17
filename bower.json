@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "jquery": "~1.11.0",
-    "d3": "~3.4.13"
+    "d3": "~3.4.13",
+    "typeahead.js": "~0.10.5"
   },
   "devDependencies": {}
 }

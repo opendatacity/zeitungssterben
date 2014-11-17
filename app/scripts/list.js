@@ -2,7 +2,7 @@ var list;
 $(function () {
 	var $ul = $('.publications-list');
 
-	$ul.on('click', 'li', function () {
+	$ul.on('mouseenter', 'li', function () {
 		chart.draw($(this).data('publication'));
 	});
 
