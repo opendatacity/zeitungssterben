@@ -4,14 +4,20 @@
 	var module = {
 	};
 
-	function _makeSource (array, key) {
+	function _makeSource (array, key, matchHook) {
 		return function (query, cb) {
-			cb(array.filter(function (el) {
+			var matches = array.filter(function (el) {
 				return (el[key].toLowerCase().indexOf(query.toLowerCase()) !== -1);
 			}).sort(function (a, b) {
 				return (b.maxCopies - a.maxCopies)
-			}));
+			});
+			if (matchHook) matchHook(matches);
+			cb(matches);
 		}
+	}
+
+	function drawIfOnlyOneMatch (matches) {
+		if (matches.length === 1) chart.draw(matches[0]);
 	}
 
 	function init (p) {
@@ -23,7 +29,7 @@
 		},
 		{
 			name: 'publications',
-			source: _makeSource(publications, 'title'),
+			source: _makeSource(publications, 'title', drawIfOnlyOneMatch),
 			displayKey: 'title'
 		});
 		$('#tf-publication').on(

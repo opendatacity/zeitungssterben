@@ -122,7 +122,6 @@ function update () {
 
 function draw (newData) {
 	data = newData;
-	console.log(data);
 	init();
 	update();
 }
