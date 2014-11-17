@@ -1,16 +1,25 @@
 d3.tsv('data/sales.tsv', function (err, data) {
 
 var LOG2 = Math.log(2);
+var samplesPerYear = 4;
+var startQuarter = 9;
+var startTime = +(new Date(2001,0,1));
+function quarterToDate (quarter) {
+	var date = new Date(startTime);
+	date.setMonth((quarter - startQuarter) * (12/samplesPerYear));
+	return date;
+}
 
 function Point (quarter, value) {
 	this.quarter = +quarter;
+	this.date = quarterToDate(+quarter);
 	this.absolute = +value;
 }
 function Regression (publication, max) {
 	this.first = { absolute: +publication.N0 };
 	if (max) this.first.relative = this.first.absolute / max.absolute;
 	this.lambda = +publication.lambda;
-	this.halfLife = -LOG2/publication.lambda/4;
+	this.halfLife = -LOG2/publication.lambda/samplesPerYear;
 }
 
 var publications = data.map(function (publication) {
