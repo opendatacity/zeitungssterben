@@ -5,14 +5,17 @@ $(Z).on('Z:ready', function () {
 	)
 	.domain(Z.publications.map(function (p) {
 		return p.regression.halfLife;
-	}), 10, 'quantiles')
+	}), Z.publications.length/10|0, 'quantiles')
 	.correctLightness(false)
 	.out('hex');
 
 	Z.colorchange = function (publication) {
-		$target.css(
-			'background-color',
-			scale(publication.regression.halfLife)
-		);
+		var color;
+		if (publication.color) { color = publication.color; }
+		else {
+			color = scale(publication.regression.halfLife);
+			publication.color = color;
+		}
+		$target.css('background-color', color);
 	};
 });

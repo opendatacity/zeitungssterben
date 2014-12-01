@@ -54,10 +54,9 @@ publications.sort(function (a, b) {
 
 $(function() {
 	Z.publications = publications;
-	$(Z).trigger('Z:ready', publications);
-
 	publications.forEach(Z.list.add);
 	Z.autocomplete.init(publications);
+	$(Z).trigger('Z:ready', [publications]);
 });
 
 $('form').submit(function (ev) {

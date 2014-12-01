@@ -46,7 +46,7 @@
 		});
 		$tf.on('focus', function () { $(this).select(); });
 		$(Z).on('Z:publicationchange', function (ev, publication) {
-			if (!$tf.is(':focus')) $tf.val(publication.title);
+			if (!$tf.is(':focus') || $tf.val() === '') $tf.val(publication.title);
 			$tf.data('publication', publication);
 		});
 	}
