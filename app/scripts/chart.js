@@ -1,8 +1,8 @@
-chart = (function () {
+Z.chart = (function () {
 
 var data;
 
-var width = 800, height = 600, margin = 30;
+var width = 800, height = 600, margin = 50;
 
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
@@ -40,7 +40,7 @@ function numberFormat (n) {
 }
 
 var viewBox = [ 0, 0, width + 2*margin, height + 2*margin ];
-var svg = d3.select('svg')
+var svg = d3.select('#main-chart')
 .attr('width', viewBox[2]).attr('height', viewBox[3])
 .attr('viewBox', viewBox.join(' '));
 
@@ -57,7 +57,7 @@ function init () {
 
 	svg.append('path')
 	.attr('class', 'line data background')
-	.attr('filter', 'url(#svg-filter-glow)');
+	// .attr('filter', 'url(#svg-filter-glow)');
 
 	svg.append('path')
 	.attr('class', 'line data foreground');
@@ -66,7 +66,7 @@ function init () {
 
 	svg.append('path')
 	.attr('class', 'line prediction background')
-	.attr('filter', 'url(#svg-filter-glow)');
+	// .attr('filter', 'url(#svg-filter-glow)');
 
 	svg.append('path')
 	.attr('class', 'line prediction foreground');
@@ -99,7 +99,7 @@ function init () {
 
 function update () {
 	$('.data-sheet').removeClass('hidden').toggleClass('toggle-animation');
-	$('.data-sheet h2').text(data.title);
+	$('.js-publication-title').text(data.title);
 	$('.js-publication-halflife').text(Math.round(data.regression.halfLife) + ' Jahre');
 
 	publicationLine.datum(data).transition().attr('d', function (d) { return line(d.copies); });

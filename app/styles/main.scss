@@ -15,12 +15,15 @@ html, body {
 
 body {
 	margin: 0;
-	padding: 1em;
+	padding: $base-spacing;
 	position: relative;
 	font-weight: bold;
-	text-shadow: 0 0 15px rgba(lighten($base-font-color, 10%), .8);
+	// text-shadow: 0 0 15px rgba(lighten($base-font-color, 10%), .8);
+
+	transition: background .5s ease;
 }
 
 .hidden {
 	display: none;
 }
+

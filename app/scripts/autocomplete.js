@@ -17,13 +17,15 @@
 	}
 
 	function drawIfOnlyOneMatch (matches) {
-		if (matches.length === 1) chart.draw(matches[0]);
+		if (matches.length === 1) $(Z).trigger('Z:publicationchange', matches[0]);
 	}
 
 	function init (p) {
 		publications = p;
 
-		$('#tf-publication').typeahead({
+		$tf = $('#tf-publication');
+
+		$tf.typeahead({
 			minLength: 1,
 			highlight: false
 		},
@@ -32,15 +34,24 @@
 			source: _makeSource(publications, 'title', drawIfOnlyOneMatch),
 			displayKey: 'title'
 		});
-		$('#tf-publication').on(
-			'typeahead:cursorchanged typeahead:selected typeahead:autocompleted',
-		function (event, publication) {
-			chart.draw(publication);
+		if ($tf.is('[autofocus]')) $tf.focus();
+		$tf.on('typeahead:cursorchanged typeahead:selected typeahead:autocompleted',
+			function (event, publication) {
+				$(Z).trigger('Z:publicationchange', publication);
+			}
+		);
+		$tf.on('blur', function () {
+			var publication = $(this).data('publication');
+			if (publication) $(this).val(publication.title);
+		});
+		$tf.on('focus', function () { $(this).select(); });
+		$(Z).on('Z:publicationchange', function (ev, publication) {
+			if (!$tf.is(':focus')) $tf.val(publication.title);
+			$tf.data('publication', publication);
 		});
 	}
 
 	module.init = init;
 
-	if (!window.modules) window.modules = {};
-	window.modules.autocomplete = module;
+	Z.autocomplete = module;
 })();

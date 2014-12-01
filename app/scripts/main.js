@@ -1,3 +1,5 @@
+(function () {
+
 d3.tsv('data/sales.tsv', function (err, data) {
 
 var LOG2 = Math.log(2);
@@ -51,14 +53,24 @@ publications.sort(function (a, b) {
 });
 
 $(function() {
-	publications.forEach(list.add);
-	modules.autocomplete.init(publications);
+	Z.publications = publications;
+	$(Z).trigger('Z:ready', publications);
+
+	publications.forEach(Z.list.add);
+	Z.autocomplete.init(publications);
 });
 
 $('form').submit(function (ev) {
 	ev.preventDefault();
 	var publicationRegex = new RegExp($('#tf-publication').val(), 'i');
 	var publication = publications.filter(function (p) { return p.title.match(publicationRegex); })[0];
-	chart.draw(publication);
+	$(Z).trigger('Z:publicationchange', publication);
 });
 });
+
+$(Z).on('Z:publicationchange', function (ev, publication) {
+	Z.chart.draw(publication);
+	Z.colorchange(publication);
+});
+
+})();

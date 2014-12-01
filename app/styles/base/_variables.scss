@@ -32,10 +32,10 @@ $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
 // Background Color
-$base-background-color: #000;
+$base-background-color: #5A6FD8;
 
 // Font Colors
-$base-font-color: #ff4;
+$base-font-color: #fbfffd;
 $base-accent-color: $base-font-color;
 
 // Link Colors
@@ -51,7 +51,7 @@ $notice-color: lighten($base-accent-color, 40);
 $success-color: $light-green;
 
 // Border color
-$base-border-color: transparent;
+$base-border-color: rgba($base-font-color, .1);
 $base-border: 1px solid $base-border-color;
 
 // Forms
@@ -63,3 +63,4 @@ $form-box-shadow: inset 0 1px 3px rgba(black,0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
+$form-element-background-color: transparent;

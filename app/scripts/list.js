@@ -1,9 +1,8 @@
-var list;
 $(function () {
 	var $ul = $('.publications-list');
 
 	$ul.on('mouseenter', 'li', function () {
-		chart.draw($(this).data('publication'));
+		$(Z).trigger('Z:publicationchange', $(this).data('publication'));
 	});
 
 	function add (publication) {
@@ -14,7 +13,7 @@ $(function () {
 		$ul.append($li);
 	}
 
-	list = {
+	Z.list = {
 		add: add
 	};
 });

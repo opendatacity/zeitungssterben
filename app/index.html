@@ -20,20 +20,16 @@
 	<body>
 		<form action="">
 			<input type="text" id="tf-publication" placeholder="Nach Zeitung suchen" autofocus>
+			<p class="data-sheet hidden"><strong>Halbwertszeit</strong> <span class="js-publication-halflife"></span></p>
 		</form>
 
-		<svg preserveAspectRatio="xMidYMax">
+		<svg preserveAspectRatio="xMidYMax" id="main-chart">
 			<defs>
 				<filter id="svg-filter-glow">
 					<feGaussianBlur in="SourceGraphic" stdDeviation="5" />
 				</filter>
 			</defs>
 		</svg>
-
-		<div class="data-sheet hidden">
-			<h2 class="publication-title"></h2>
-			<p><strong>Halbwertszeit</strong> <span class="js-publication-halflife"></span></p>
-		</div>
 
 		<ul class="publications-list"></ul>
 
@@ -42,14 +38,18 @@
 		<script src="bower_components/jquery/dist/jquery.js"></script>
 		<script src="bower_components/d3/d3.js"></script>
 		<script src="bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
+		<script src="bower_components/chroma-js/chroma.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
+		<script>var Z = {};</script>
 		<!-- build:js scripts/main.js -->
 		<script src="scripts/chart.js"></script>
+		<script src="scripts/colorchange.js"></script>
 		<script src="scripts/list.js"></script>
 		<script src="scripts/autocomplete.js"></script>
 		<script src="scripts/main.js"></script>
+		<script src="scripts/form.js"></script>
 		<!-- endbuild -->
 </body>
 </html>

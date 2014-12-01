@@ -31,15 +31,15 @@ textarea,
 select[multiple=multiple] {
   @include box-sizing(border-box);
   @include transition(border-color);
-  background-color: lighten($base-background-color, 5%);
+  background-color: $form-element-background-color; //lighten($base-background-color, 5%);
   color: $base-font-color;
   border: none;
-  // border-bottom: .15em solid $form-border-color;
-  box-shadow: $form-box-shadow;
+  // border: 1px solid $form-border-color;
+  // box-shadow: $form-box-shadow;
   font-family: $form-font-family;
   font-size: $form-font-size;
   font-weight: 600;
-  margin-bottom: $base-spacing / 2;
+  // margin-bottom: $base-spacing / 2;
   padding: ($base-spacing / 4) ($base-spacing / 4);
   width: 100%;
 
@@ -52,9 +52,8 @@ select[multiple=multiple] {
   }
 
   &:focus {
-    text-decoration: underline;
     // border-color: $form-border-color-focus;
-    background-color: lighten($base-background-color, 15%);
+    background-color: lighten($form-element-background-color, 15%);
     // box-shadow: $form-box-shadow-focus;
     outline: none;
   }

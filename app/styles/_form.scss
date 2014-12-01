@@ -1,10 +1,36 @@
 form {
 	position: relative;
 	z-index: 2;
+	background-color: rgba($base-font-color, .1);
+	border-bottom: 1px solid rgba($base-font-color, .1);
+	margin: -$base-spacing;
+	padding: $base-spacing;
+
+	transition: background .1s ease;
+
+	p {
+		margin: 0;
+	}
+
+	&.focus {
+		background-color: rgba($base-font-color, .15);
+	}
+
+	&.has-autofocus {
+		cursor: text;
+		user-select: none;
+	}
 }
 input {
 	&::selection {
 		background-color: $base-font-color;
 		color: $base-background-color;
 	}
+	margin: -$base-spacing/4;
+}
+.twitter-typeahead {
+	width: 100%;
+}
+.publication-halflife {
+	font-weight: 300;
 }
