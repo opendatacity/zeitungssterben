@@ -32,7 +32,7 @@ select[multiple=multiple] {
   @include box-sizing(border-box);
   @include transition(border-color);
   background-color: $form-element-background-color; //lighten($base-background-color, 5%);
-  color: $base-font-color;
+  color: $form-element-text-color;
   border: none;
   // border: 1px solid $form-border-color;
   // box-shadow: $form-box-shadow;

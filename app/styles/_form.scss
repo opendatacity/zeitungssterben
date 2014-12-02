@@ -1,7 +1,10 @@
+$form-background-color: rgba($base-font-color, .1);
+$form-focus-background-color: rgba($base-font-color, .15);
+
 form {
 	position: relative;
 	z-index: 2;
-	background-color: rgba($base-font-color, .1);
+	background-color: $form-background-color;
 	border-bottom: 1px solid rgba($base-font-color, .1);
 	margin: -$base-spacing;
 	padding: $base-spacing;
@@ -13,7 +16,7 @@ form {
 	}
 
 	&.focus {
-		background-color: rgba($base-font-color, .15);
+		background-color: $form-focus-background-color;
 	}
 
 	&.has-autofocus {

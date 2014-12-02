@@ -1,14 +1,15 @@
 path {
 	fill: none;
-	stroke: $base-font-color;
+	stroke: inherit;
 	stroke-width: 6px;
 }
 svg {
 	position: absolute;
-	z-index: 1;
+	pointer-events: none;
 	user-select: none;
 	cursor: default;
-	fill: $base-font-color;
+	fill: inherit;
+	stroke: inherit;
 	top: 4em;
 	left: 0;
 	width: 100%;
@@ -17,10 +18,16 @@ svg {
 .axis {
 	&.y { display: none; }
 }
+.tick line {
+	stroke-width: 3px;
+}
 .prediction {
 	stroke-width: 4px;
 	stroke-dasharray: 15 10;
 }
 .background {
 	opacity: .5;
+}
+text {
+	stroke: none;
 }

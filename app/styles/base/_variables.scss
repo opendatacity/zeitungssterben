@@ -22,6 +22,9 @@ $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
 $base-z-index: 0;
 
+// Z-Indices
+$chart-z-index: 3;
+
 // Colors
 $blue: #477DCA;
 $dark-gray: #333;
@@ -63,4 +66,5 @@ $form-box-shadow: inset 0 1px 3px rgba(black,0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
+$form-element-text-color: inherit;
 $form-element-background-color: transparent;

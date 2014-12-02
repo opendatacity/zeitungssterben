@@ -45,6 +45,9 @@
 			if (publication) $(this).val(publication.title);
 		});
 		$tf.on('focus', function () { $(this).select(); });
+		$tf.on('typeahead:opened', function () {
+			$('.tt-dropdown-menu').css('margin-top', function () { $('form').outerHeight(); });
+		});
 		$(Z).on('Z:publicationchange', function (ev, publication) {
 			if (!$tf.is(':focus') || $tf.val() === '') $tf.val(publication.title);
 			$tf.data('publication', publication);

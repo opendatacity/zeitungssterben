@@ -1,21 +1,27 @@
 $(Z).on('Z:ready', function () {
 	var $target = $('body');
-	var scale = chroma.scale(
-		['#910005', '#f3db09', '#0e6f01']
-	)
+
+	var redYellowGreen = ['#910005', '#f3db09', '#0e6f01'];
+	var grayscale = ['black', 'white'];
+
+	var scale = chroma.scale(grayscale)
 	.domain(Z.publications.map(function (p) {
 		return p.regression.halfLife;
 	}), Z.publications.length/10|0, 'quantiles')
-	.correctLightness(false)
-	.out('hex');
+	.correctLightness(false);
 
 	Z.colorchange = function (publication) {
-		var color;
-		if (publication.color) { color = publication.color; }
+		var fg, bg;
+		if (publication.bg) { bg = publication.bg; }
 		else {
-			color = scale(publication.regression.halfLife);
-			publication.color = color;
+			bg = scale(publication.regression.halfLife);
+			publication.bg = bg;
 		}
-		$target.css('background-color', color);
+		fg = (bg.luminance() > 0.5)? 'black' : 'white';
+		$target.css({
+			backgroundColor: bg,
+			color: fg
+		});
+		$('svg').css({ stroke: fg, fill: fg });
 	};
 });
