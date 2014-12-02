@@ -1,6 +1,6 @@
 (function () {
 
-d3.tsv('data/sales.tsv', function (err, data) {
+d3.tsv('data/data.tsv', function (err, data) {
 
 var LOG2 = Math.log(2);
 var samplesPerYear = 4;
