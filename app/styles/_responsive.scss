@@ -1,0 +1,14 @@
+@media screen and (max-width: 600px), screen and (max-height: 600px) {
+	body {
+		font-size: 20px;
+	}
+	svg {
+		stroke-width: 10px;
+	}
+	svg text {
+		font-size: 1.8em;
+	}
+	text.max {
+		text-align: left;
+	}
+}
