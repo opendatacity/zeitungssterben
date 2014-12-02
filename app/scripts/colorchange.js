@@ -4,10 +4,29 @@ $(Z).on('Z:ready', function () {
 	var redYellowGreen = ['#910005', '#f3db09', '#0e6f01'];
 	var grayscale = ['black', 'white'];
 
-	var scale = chroma.scale(grayscale)
-	.domain(Z.publications.map(function (p) {
+	var callback = function (bg, fg) {
+		$('body, .publications-list').css({
+			backgroundColor: bg,
+			color: fg
+		});
+
+		$('svg').css({ stroke: fg, fill: fg });
+
+		$('form').css({
+			backgroundColor: fg.alpha(.1).css(),
+			borderBottomColor: fg.alpha(.15).css()
+		})
+
+		$('.tt-dropdown-menu').css('backgroundColor', bg.alpha(.9).css());
+	}
+
+	var domain = Z.publications.map(function (p) {
 		return p.regression.halfLife;
-	}), Z.publications.length/10|0, 'quantiles')
+	});
+	domain = [10, 150];
+
+	var scale = chroma.scale(grayscale)
+	.domain(domain)
 	.correctLightness(false);
 
 	Z.colorchange = function (publication) {
@@ -17,12 +36,7 @@ $(Z).on('Z:ready', function () {
 			bg = scale(publication.regression.halfLife);
 			publication.bg = bg;
 		}
-		fg = (bg.luminance() > 0.5)? 'black' : 'white';
-		$target.css({
-			backgroundColor: bg,
-			color: fg
-		});
-		$('svg').css({ stroke: fg, fill: fg });
-		$('.tt-dropdown-menu').css('backgroundColor', bg.alpha(.9).css());
+		fg = chroma((bg.luminance() > 0.4)? 'black' : 'white');
+		callback(bg, fg);
 	};
 });

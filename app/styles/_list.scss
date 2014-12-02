@@ -9,6 +9,8 @@
 	height: 1.5em;
 	overflow: hidden;
 
+	@extend %main-colors;
+
 	li {
 		display: none;
 		cursor: pointer;

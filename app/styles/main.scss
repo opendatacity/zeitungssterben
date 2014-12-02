@@ -15,11 +15,17 @@ html, body {
 }
 
 %main-background {
-	transition: background .5s ease;
+	transition: background 1s ease;
+}
+%main-foreground {
+	transition: color 1s ease;
+}
+%main-colors {
+	transition: color 1s ease, background 1s ease;
 }
 
 body {
-	@extend %main-background;
+	@extend %main-colors;
 	margin: 0;
 	padding: $base-spacing;
 	position: relative;
