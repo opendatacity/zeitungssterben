@@ -9,7 +9,7 @@
 			var matches = array.filter(function (el) {
 				return (el[key].toLowerCase().indexOf(query.toLowerCase()) !== -1);
 			}).sort(function (a, b) {
-				return (b.maxCopies - a.maxCopies)
+				return (b.max.absolute - a.max.absolute)
 			});
 			if (matchHook) matchHook(matches);
 			cb(matches);
