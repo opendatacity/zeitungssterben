@@ -1,6 +1,6 @@
 .publications-list {
 	position: absolute;
-	z-index: 5;
+	z-index: $form-z-index + 1;
 
 	top: 1.5em;
 	right: 1.5em;
@@ -8,20 +8,28 @@
 	width: 1.5em;
 	height: 1.5em;
 	overflow: hidden;
-	background: rgba($base-background-color, .8);
 
 	li {
 		display: none;
 		cursor: pointer;
-		padding-left: 1em;
+		margin: 0 -.5em;
+		padding-left: 1.5em;
+		padding-right: .5em;
 		text-indent: -1em;
 		&:hover {
 			background-color: $base-font-color;
-			color: $base-background-color;
+			color: #000;
 		}
 	}
 
+	&:before {
+		font: 2em/.5em sans-serif;
+		font-weight: bold;
+		content: '≔';
+	}
+
 	&:hover {
+		background: rgba(#000, .8);
 		bottom: 0;
 		right: 0;
 		top: 0;
@@ -30,6 +38,9 @@
 		width: 15em;
 		height: auto;
 		max-width: 80%;
+		&:before {
+			display: none;
+		}
 		li {
 			display: block;
 		}
