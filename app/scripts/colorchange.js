@@ -23,5 +23,6 @@ $(Z).on('Z:ready', function () {
 			color: fg
 		});
 		$('svg').css({ stroke: fg, fill: fg });
+		$('.tt-dropdown-menu').css('backgroundColor', bg.alpha(.9).css());
 	};
 });

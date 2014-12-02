@@ -1,12 +1,12 @@
 .data-sheet {
 	user-select: none;
-	font-weight: 300;
+	font-weight: bold;
 
 	h2 {
 		font-size: 1.2em;
 	}
 	h2, strong {
-		font-weight: bold;
+		font-weight: 300;
 	}
 	animation: blink-a .7s linear 1 normal;
 

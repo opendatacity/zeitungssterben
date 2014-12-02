@@ -1,0 +1,29 @@
+.tt- {
+	&hint {
+		opacity: .4 !important;
+	}
+	&dropdown-menu {
+		@extend %main-background;
+		width: 100%;
+		display: block;
+		margin: 3.5em (-$base-spacing) 0;
+		padding: 0 $base-spacing;
+		z-index: $chart-z-index - 1;
+	}
+	&suggestion {
+		width: 100%;
+		display: block;
+		margin: 0 (-$base-spacing);
+		padding: 0 $base-spacing;
+		cursor: pointer;
+		background: $form-focus-background-color;
+
+		strong {
+			text-decoration: underline;
+		}
+	}
+	&cursor {
+		background: rgba($form-focus-background-color, .3);
+	}
+
+}

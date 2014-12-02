@@ -23,11 +23,11 @@
 	function init (p) {
 		publications = p;
 
-		$tf = $('#tf-publication');
+		var $tf = $('#tf-publication');
 
 		$tf.typeahead({
 			minLength: 1,
-			highlight: false
+			highlight: true
 		},
 		{
 			name: 'publications',
@@ -45,9 +45,6 @@
 			if (publication) $(this).val(publication.title);
 		});
 		$tf.on('focus', function () { $(this).select(); });
-		$tf.on('typeahead:opened', function () {
-			$('.tt-dropdown-menu').css('margin-top', function () { $('form').outerHeight(); });
-		});
 		$(Z).on('Z:publicationchange', function (ev, publication) {
 			if (!$tf.is(':focus') || $tf.val() === '') $tf.val(publication.title);
 			$tf.data('publication', publication);

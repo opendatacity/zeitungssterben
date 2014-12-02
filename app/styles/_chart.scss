@@ -4,16 +4,17 @@ path {
 	stroke-width: 6px;
 }
 svg {
+	z-index: $chart-z-index;
 	position: absolute;
 	pointer-events: none;
 	user-select: none;
 	cursor: default;
 	fill: inherit;
 	stroke: inherit;
-	top: 4em;
+	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: calc(100% - 4.5em);
+	height: calc(100% - 7em);
 }
 .axis {
 	&.y { display: none; }

@@ -3,7 +3,7 @@ $form-focus-background-color: rgba($base-font-color, .15);
 
 form {
 	position: relative;
-	z-index: 2;
+	z-index: $form-z-index;
 	background-color: $form-background-color;
 	border-bottom: 1px solid rgba($base-font-color, .1);
 	margin: -$base-spacing;
