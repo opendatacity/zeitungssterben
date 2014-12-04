@@ -22,6 +22,7 @@ function Regression (publication, max) {
 	if (max) this.first.relative = this.first.absolute / max.absolute;
 	this.lambda = +publication.lambda;
 	this.halfLife = -LOG2/publication.lambda/samplesPerYear;
+	if (this.halfLife < 0) this.halfLife = Infinity;
 }
 
 var publications = data.map(function (publication) {

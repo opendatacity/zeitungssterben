@@ -100,14 +100,17 @@ function init () {
 function update () {
 	var duration = window.photogenic? 0 : 200;
 
+	var halfLife = (data.regression.halfLife === Infinity)? 'keine' : (Math.round(data.regression.halfLife) + ' Jahre');
+
 	$('.data-sheet').removeClass('hidden').toggleClass('toggle-animation');
 	$('.js-publication-title').text(data.title);
-	$('.js-publication-halflife').text(Math.round(data.regression.halfLife) + ' Jahre');
+	$('.js-publication-halflife').text(halfLife);	
 
 	publicationLine.datum(data).transition().duration(duration)
 	.attr('d', function (d) { return line(d.copies); });
 	regressionLine.transition().duration(duration)
-	.attr('d', exponentialLine(data.regression));
+	.attr('d', exponentialLine(data.regression))
+	.style('opacity', function (d) { return +(data.regression.halfLife !== Infinity); });
 	
 	maxLabel.datum(data)
 	.transition().duration(duration)
