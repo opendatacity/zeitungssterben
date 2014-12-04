@@ -40,7 +40,8 @@ var publications = data.map(function (publication) {
 		point.relative = point.absolute/max.absolute;
 	});
 	return {
-		title: publication.name,
+		title: publication.title,
+		alias: publication.alias,
 		copies: copies,
 		max: max,
 		min: min,

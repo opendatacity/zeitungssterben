@@ -98,21 +98,27 @@ function init () {
 }
 
 function update () {
+	var duration = window.photogenic? 0 : 200;
+
 	$('.data-sheet').removeClass('hidden').toggleClass('toggle-animation');
 	$('.js-publication-title').text(data.title);
 	$('.js-publication-halflife').text(Math.round(data.regression.halfLife) + ' Jahre');
 
-	publicationLine.datum(data).transition().attr('d', function (d) { return line(d.copies); });
-	regressionLine.transition().attr('d', exponentialLine(data.regression));
+	publicationLine.datum(data).transition().duration(duration)
+	.attr('d', function (d) { return line(d.copies); });
+	regressionLine.transition().duration(duration)
+	.attr('d', exponentialLine(data.regression));
 	
-	maxLabel.datum(data).transition()
+	maxLabel.datum(data)
+	.transition().duration(duration)
 	.attr('cx', function (d) { return xAccessor(d.max); })
 	.attr( 'x', function (d) { return xAccessor(d.max); })
 	.attr('cy', function (d) { return yAccessor(d.max); })
 	.attr( 'y', function (d) { return yAccessor(d.max); })
 	.text(function (d) { return numberFormat(d.max.absolute); });
 
-	minLabel.datum(data).transition()
+	minLabel.datum(data)
+	.transition().duration(duration)
 	.attr('cx', function (d) { return xAccessor(d.min); })
 	.attr( 'x', function (d) { return xAccessor(d.min); })
 	.attr('cy', function (d) { return yAccessor(d.min); })
