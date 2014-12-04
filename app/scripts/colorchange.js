@@ -23,11 +23,32 @@ $(Z).on('Z:ready', function () {
 	var domain = Z.publications.map(function (p) {
 		return p.regression.halfLife;
 	});
-	domain = [10, 150];
+	domain = [0, 150];
 
 	var scale = chroma.scale(grayscale)
 	.domain(domain)
 	.correctLightness(false);
+
+	var whenOpportune = (function () {
+		var delayedCallback = null;
+		var reasonToDelay = false;
+
+		$(document.body).on('typeahead:opened', function () {
+			reasonToDelay = true;
+		});
+		$(document.body).on('typeahead:closed', function () {
+			reasonToDelay = false;
+			if (delayedCallback) {
+				delayedCallback();
+				delayedCallback = null;
+			}
+		});
+
+		return function (cb) {
+			if (reasonToDelay) delayedCallback = cb;
+			else cb();
+		}
+	})();
 
 	Z.colorchange = function (publication) {
 		var fg, bg;
@@ -37,6 +58,6 @@ $(Z).on('Z:ready', function () {
 			publication.bg = bg;
 		}
 		fg = chroma((bg.luminance() > 0.4)? 'black' : 'white');
-		callback(bg, fg);
+		whenOpportune(function () { callback(bg, fg); });
 	};
 });

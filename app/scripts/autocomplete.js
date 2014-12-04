@@ -33,7 +33,7 @@
 				var matches = [];
 			}
 			if (matchHook) matchHook(matches);
-			cb(matches);
+			cb(matches.slice(0, 10));
 		}
 	}
 
