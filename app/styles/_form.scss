@@ -25,10 +25,6 @@ form {
 	}
 }
 input {
-	&::selection {
-		background-color: $base-font-color;
-		color: $base-background-color;
-	}
 	margin: -$base-spacing/4;
 }
 .twitter-typeahead {
