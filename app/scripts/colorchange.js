@@ -15,7 +15,7 @@ $(Z).on('Z:ready', function () {
 			borderBottomColor: fg.alpha(.15).css()
 		})
 
-		$('.tt-dropdown-menu').css('backgroundColor', bg.alpha(.9).css());
+		// $('.tt-dropdown-menu').css('backgroundColor', bg.alpha(.9).css());
 	}
 
 	var domain = Z.publications.map(function (p) {

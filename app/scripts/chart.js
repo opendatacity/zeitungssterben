@@ -94,6 +94,14 @@ function init () {
 	maxLabel = svg.selectAll('.data-label.max');
 	minLabel = svg.selectAll('.data-label.min');
 
+	var $header = $('form');
+
+	$(window).on('resize keyup typeahead:closed', function () {
+		var bottom = $header.outerHeight();
+		var availableHeight = $(document.body).height() - bottom;
+		$('#main-chart').css('max-height', availableHeight);
+	});
+
 	return true;
 }
 

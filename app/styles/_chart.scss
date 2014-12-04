@@ -15,6 +15,7 @@ path {
 	left: 0;
 	width: 100%;
 	height: calc(100% - 7em);
+	transition: max-height .2s ease;
 }
 .axis {
 	&.y { display: none; }
