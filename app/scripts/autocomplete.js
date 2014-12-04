@@ -27,7 +27,7 @@
 					}
 					return false;
 				}).sort(function (a, b) {
-					return (b.maxCopies - a.maxCopies)
+					return (b.max.absolute - a.max.absolute);
 				});
 			} catch (e) {
 				var matches = [];
