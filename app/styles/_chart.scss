@@ -3,7 +3,7 @@ path {
 	stroke: inherit;
 	stroke-width: 6px;
 }
-svg {
+#main-chart {
 	z-index: $chart-z-index;
 	position: absolute;
 	pointer-events: none;

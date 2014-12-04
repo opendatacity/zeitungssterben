@@ -69,3 +69,8 @@ $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
 $form-element-text-color: inherit;
 $form-element-background-color: transparent;
+
+// Transitions
+%base-transition {
+	transition: all .2s ease;
+}
