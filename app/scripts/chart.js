@@ -105,7 +105,7 @@ function init () {
 }
 
 function update () {
-	var duration = window.photogenic? 0 : 200;
+	var duration = $('body').hasClass('photogenic')? 0 : 200;
 
 	var halfLife = (data.regression.halfLife === Infinity)? 'keine' : (Math.round(data.regression.halfLife) + ' Jahre');
 
@@ -134,6 +134,8 @@ function update () {
 	.attr('cy', function (d) { return yAccessor(d.min); })
 	.attr( 'y', function (d) { return yAccessor(d.min); })
 	.text(function (d) { return numberFormat(d.min.absolute); });
+
+	$(Z).trigger('Z:chartdrawn');
 }
 
 function draw (newData) {
