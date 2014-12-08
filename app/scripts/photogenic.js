@@ -69,5 +69,38 @@ window.photogenic = (function () {
 			$(Z).trigger('Z:publicationchange', currentItem);
 		});
 	}
+
 	return photogenic;
 })();
+
+
+(function () {
+	var _callback = false;
+
+	window.addEventListener('message', function(event) {
+		if (event.source != window) return;
+		
+		if (event.data.type && (event.data.type == 'screenshot_done')) {
+			var cb = _callback;
+			_callback = false;
+			if (cb) cb();
+		}
+	}, false);
+
+	window.screenshot = function (filename, callback) {
+		if (_callback) throw Error('Ein Screenshot nach dem anderen, bitte!');
+
+		_callback = callback;
+		window.postMessage({ type: 'screenshot_do', filename: filename }, '*');
+	}
+})()
+
+
+
+window.run = function() {
+	window.photogenic(function (filename) {
+		window.screenshot('twittercard/'+filename, function () {
+
+		})
+	})
+}
