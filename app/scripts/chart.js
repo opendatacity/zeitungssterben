@@ -76,7 +76,8 @@ function init () {
 	svg.append('text')
 	.attr('class', 'data-label max')
 	.attr('text-anchor', 'start')
-	.attr('dy', -10);
+	.attr('dx', 15)
+	.attr('dy', -15);
 
 	svg.append('circle')
 	.attr('r', 8)
@@ -85,7 +86,8 @@ function init () {
 	svg.append('text')
 	.attr('class', 'data-label min')
 	.attr('text-anchor', 'end')
-	.attr('dy', 30);
+	.attr('dx', -15)
+	.attr('dy', 40);
 
 	svg.append('circle')
 	.attr('r', 8)

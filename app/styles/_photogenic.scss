@@ -1,18 +1,33 @@
 .photogenic {
-	width: 560px;
-	height: 300px;
-
-	form,
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
 	.publications-list {
 		display: none;
 	}
+	form {
+		font-size: .8em;
+		padding: .5em;
+		margin: 0;
+		height: 2.2em;
+	}
+	.icon-search {
+		top: .5em;
+		left: .5em;
+	}
+	.data-sheet {
+		top: 1.68em;
+	}
 	#main-chart {
-		top: 0;
+		top: 2.8em;
 		left: 0;
-		width: 560px;
-		height: 300px;
+		width: 100vw;
+		height: calc(100vh - 2.8em);
+		max-width: 100vw !important;
+		max-height: calc(100vh - 2.5em) !important;
 	}
 	&, * {
-		transition: none;
+		transition: none !important;
+		animation: none !important;
 	}
 }
