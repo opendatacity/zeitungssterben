@@ -1,0 +1,46 @@
+$modal-width: 12em;
+#modals-pane {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: .5em;
+	text-align: right;
+}
+.modal-background, .modal-foreground {
+	width: 100%;
+	height: 100%;
+	transition: all .2s ease;
+	top: 0;
+	left: 0;
+}
+.modal-background {
+	position: relative;
+	&.modal-active {
+		transform: translatex(-$modal-width);
+	}
+}
+.modal-foreground {
+	position: fixed;
+	background: transparent;
+	pointer-events: none;
+	&.modal-active {
+		background: rgba(#000, .3);
+		pointer-events: auto;
+	}
+}
+.modal {
+	transition: all .2s ease;
+	position: absolute;
+	right: -$modal-width;
+	top: 0;
+	width: $modal-width;
+	height: 100vh;
+	padding: .5em;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	box-sizing: border-box;
+	background: rgba(#000, .6);
+	&.modal-active {
+		right: 0;
+	}
+}
