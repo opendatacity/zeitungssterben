@@ -6,6 +6,7 @@ $(function () {
 		document.title = [publication.title, initialTitle].join(': ');
 		if (typeof history.replaceState === 'function') {
 			history.replaceState(publication, publication.title, Z.slugify(publication));
+			$(Z).trigger('Z:statechange');
 		}
 	});
 
