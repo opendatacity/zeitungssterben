@@ -15,6 +15,8 @@ $modal-width: 12em;
 }
 .modal-background {
 	position: relative;
+	margin: -$base-spacing;
+	padding: $base-spacing;
 	&.modal-active {
 		transform: translatex(-$modal-width);
 	}
@@ -40,7 +42,16 @@ $modal-width: 12em;
 	-webkit-overflow-scrolling: touch;
 	box-sizing: border-box;
 	background: rgba(#000, .6);
+	color: $base-font-color;
 	&.modal-active {
 		right: 0;
+	}
+	p {
+		font: .8em/1.2em sans-serif;
+	}
+	textarea {
+		font: inherit;
+		font-family: "Input Sans", Menlo, Consolas, monospace;
+		padding: 0;
 	}
 }

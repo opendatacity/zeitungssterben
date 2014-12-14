@@ -13,7 +13,11 @@ $(Z).on('Z:ready', function () {
 		$('form').css({
 			backgroundColor: fg.alpha(.1).css(),
 			borderBottomColor: fg.alpha(.15).css()
-		})
+		});
+
+		$('a').css({
+			color: fg
+		});
 
 		// $('.tt-dropdown-menu').css('backgroundColor', bg.alpha(.9).css());
 	}
