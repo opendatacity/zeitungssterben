@@ -97,10 +97,13 @@ window.photogenic = (function () {
 
 
 
-window.run = function() {
+window.screenshotLoop = function() {
 	window.photogenic(function (filename) {
-		window.screenshot('twittercard/'+filename, function () {
-
-		})
-	})
+		if (!filename) return;
+		window.setTimeout(function () {
+			window.screenshot('twittercard/'+filename, function () {
+				window.screenshotLoop();
+			});
+		}, 1000);
+	});
 }

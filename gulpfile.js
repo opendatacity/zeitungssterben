@@ -1,6 +1,5 @@
 'use strict';
 // generated on 2014-11-06 using generator-gulp-webapp 0.1.0
-
 var gulp = require('gulp');
 
 // load plugins

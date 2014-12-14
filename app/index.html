@@ -12,24 +12,35 @@
 
 	</head>
 	<body>
-		<form action="">
-			<svg width="40px" height="40px" viewBox="0 0 40 40" class="icon-search">
-				<path d="M30.038,26.003l-0.707,0.707l-2.505-2.505C28.808,21.662,30,18.474,30,15c0-8.284-6.716-15-15-15S0,6.716,0,15 c0,8.284,6.716,15,15,15c3.729,0,7.133-1.369,9.757-3.621l2.453,2.453l-0.707,0.707l9.712,9.712l3.536-3.536L30.038,26.003z M3,15 C3,8.373,8.373,3,15,3s12,5.373,12,12c0,6.627-5.373,12-12,12S3,21.627,3,15z">
+		<section id="controls">
+			<form action="">
+				<svg width="40px" height="40px" viewBox="0 0 40 40" class="icon-search">
+					<path d="M30.038,26.003l-0.707,0.707l-2.505-2.505C28.808,21.662,30,18.474,30,15c0-8.284-6.716-15-15-15S0,6.716,0,15 c0,8.284,6.716,15,15,15c3.729,0,7.133-1.369,9.757-3.621l2.453,2.453l-0.707,0.707l9.712,9.712l3.536-3.536L30.038,26.003z M3,15 C3,8.373,8.373,3,15,3s12,5.373,12,12c0,6.627-5.373,12-12,12S3,21.627,3,15z">
+				</svg>
+
+				<input type="text" id="tf-publication" placeholder="Nach Zeitung suchen" autofocus>
+				<p class="data-sheet hidden"><strong>Halbwertszeit</strong> <span class="js-publication-halflife"></span></p>
+			</form>
+		</section>
+
+		<section id="drawing-area">
+			<svg preserveAspectRatio="xMidYMin" id="main-chart">
 			</svg>
+		</section>
 
-			<input type="text" id="tf-publication" placeholder="Nach Zeitung suchen" autofocus>
-			<p class="data-sheet hidden"><strong>Halbwertszeit</strong> <span class="js-publication-halflife"></span></p>
-		</form>
+		<section id="modals-pane">
+			<nav>
+				<ul>
+					<li><a href="#embed">Einbetten</a></li>
+				</ul>
+			</nav>
+		</section>
 
-		<svg preserveAspectRatio="xMidYMin" id="main-chart">
-			<defs>
-				<filter id="svg-filter-glow">
-					<feGaussianBlur in="SourceGraphic" stdDeviation="5" />
-				</filter>
-			</defs>
-		</svg>
-
-		<ul class="publications-list"></ul>
+		<aside id="embed" class="modal">
+			<h2>Einbetten</h2>
+			<p>Sie können folgenden Code nutzen, um diese Visualisierung in Ihrer Veröffentlichung einzubetten.</p>
+			<p><input id="embed-code" type="text" readonly></p>
+		</aside>
 
 		<!-- build:js scripts/vendor.js -->
 		<!-- bower:js -->
@@ -37,6 +48,7 @@
 		<script src="bower_components/d3/d3.js"></script>
 		<script src="bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
 		<script src="bower_components/chroma-js/chroma.js"></script>
+		<script src="bower_components/fastclick/lib/fastclick.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
@@ -45,7 +57,6 @@
 		<script src="scripts/photogenic.js"></script>
 		<script src="scripts/chart.js"></script>
 		<script src="scripts/colorchange.js"></script>
-		<script src="scripts/list.js"></script>
 		<script src="scripts/autocomplete.js"></script>
 		<script src="scripts/main.js"></script>
 		<script src="scripts/form.js"></script>

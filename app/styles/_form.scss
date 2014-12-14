@@ -45,6 +45,11 @@ input {
 	padding-left: 1.4em !important;
 	margin-bottom: .5em;
 }
+.tt-hint, .tt-input {
+	// Fix cut-off diacritics
+	line-height: 1.3em;
+	top: -.18em !important;
+}
 .twitter-typeahead {
 	width: 100%;
 }

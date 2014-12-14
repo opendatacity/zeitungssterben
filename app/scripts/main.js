@@ -56,7 +56,6 @@ publications.sort(function (a, b) {
 
 $(function() {
 	Z.publications = publications;
-	publications.forEach(Z.list.add);
 	Z.autocomplete.init(publications);
 	$(Z).trigger('Z:ready', [publications]);
 });

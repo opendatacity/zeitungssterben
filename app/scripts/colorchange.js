@@ -1,6 +1,6 @@
 $(Z).on('Z:ready', function () {
 	var redYellowGreen = ['#910005', '#f3db09', '#0e6f01'];
-	var grayscale = ['black', 'white'];
+	var grayscale = ['#aaa', 'white'];
 
 	var callback = function (bg, fg) {
 		$('body, .publications-list').css({

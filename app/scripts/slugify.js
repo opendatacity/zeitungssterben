@@ -3,6 +3,11 @@
 		{ search: /ä/g, replace: 'ae' },
 		{ search: /ö/g, replace: 'oe' },
 		{ search: /ü/g, replace: 'ue' },
+		{ search: /ß/g, replace: 'ss' },
+		{ search: /[éèê]/g, replace: 'e' },
+		{ search: /[áàâ]/g, replace: 'a' },
+		{ search: /'/g, replace: '' },
+		{ search: /[^a-z]+$/g, replace: '' },
 		{ search: /[^a-z]+/g, replace: '-' },
 	];
 
