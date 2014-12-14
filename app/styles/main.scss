@@ -44,4 +44,18 @@ h2 {
 .hidden {
 	display: none;
 }
+.credits {
+	display: none;
+	position: absolute;
+	bottom: -5%;
+	right: 0;
+	font-size: .7em;
+	opacity: .3;
+}
+.is-framed {
+	height: 95%;
+	.credits {
+		display: block;
+	}	
+}
 

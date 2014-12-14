@@ -1,7 +1,11 @@
 $modal-width: 12em;
 #modals-pane {
+	z-index: $form-z-index + 1;
+	font-size: .8em;
+	line-height: 1em;
+	opacity: .4;
 	position: absolute;
-	bottom: 0;
+	top: 1em;
 	right: 0;
 	padding: .5em;
 	text-align: right;
@@ -41,13 +45,13 @@ $modal-width: 12em;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 	box-sizing: border-box;
-	background: rgba(#000, .6);
-	color: $base-font-color;
+	background: rgba($base-font-color, .4);
+	color: $base-background-color;
 	&.modal-active {
 		right: 0;
 	}
 	p {
-		font: .8em/1.2em sans-serif;
+		font: .75em/1.2em sans-serif;
 	}
 	textarea {
 		font: inherit;

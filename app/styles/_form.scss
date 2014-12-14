@@ -51,7 +51,7 @@ input {
 	top: -.18em !important;
 }
 .twitter-typeahead {
-	width: 100%;
+	width: calc(100% - 3em);
 }
 .publication-halflife {
 	font-weight: 300;
