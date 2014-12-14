@@ -60,12 +60,6 @@ $(function() {
 	$(Z).trigger('Z:ready', [publications]);
 });
 
-$('form').submit(function (ev) {
-	ev.preventDefault();
-	var publicationRegex = new RegExp($('#tf-publication').val(), 'i');
-	var publication = publications.filter(function (p) { return p.title.match(publicationRegex); })[0];
-	$(Z).trigger('Z:publicationchange', publication);
-});
 });
 
 $(Z).on('Z:publicationchange', function (ev, publication) {

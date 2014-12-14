@@ -48,10 +48,11 @@ input {
 .tt-hint, .tt-input {
 	// Fix cut-off diacritics
 	line-height: 1.3em;
+	width: calc(100% - 1.5em) !important;
 	top: -.18em !important;
 }
 .twitter-typeahead {
-	width: calc(100% - 3em);
+	width: 100%;
 }
 .publication-halflife {
 	font-weight: 300;

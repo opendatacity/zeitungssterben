@@ -67,6 +67,18 @@
 			if (publication) $(this).val(publication.title);
 		});
 		$tf.on('focus', function () { $(this).select(); });
+		$tf.on('keyup', function (ev) {
+			if (ev.keyCode !== 13) return; // key 13 is return
+			$('form').triggerHandler('submit');
+			$tf.blur();
+		});
+		$('form').on('submit', function (ev) {
+			ev.preventDefault();
+			Z.findPublication($tf.val(), function (matches) {
+				if (!matches || matches.length === 0) return;
+				$(Z).trigger('Z:publicationchange', matches[0]);
+			});
+		});
 		$(Z).on('Z:publicationchange', function (ev, publication) {
 			if (!$tf.is(':focus') || $tf.val() === '') $tf.val(publication.title);
 			$tf.data('publication', publication);
