@@ -32,8 +32,6 @@ gulp.task('html', ['styles', 'scripts'], function () {
 	var jsFilter = $.filter('**/*.js');
 	var cssFilter = $.filter('**/*.css');
 
-	require('./server/static-pages');
-
 	return gulp.src('app/*.html')
 		.pipe($.useref.assets({searchPath: '{.tmp,app}'}))
 		.pipe(jsFilter)
@@ -46,6 +44,10 @@ gulp.task('html', ['styles', 'scripts'], function () {
 		.pipe($.useref())
 		.pipe(gulp.dest('dist'))
 		.pipe($.size());
+});
+
+gulp.task('static', ['html'], function () {
+	require('./server/static-pages');
 });
 
 gulp.task('images', function () {
@@ -75,7 +77,7 @@ gulp.task('clean', function () {
 	return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'data', 'extras']);
+gulp.task('build', ['html', 'static', 'images', 'fonts', 'data', 'extras']);
 
 gulp.task('default', ['clean'], function () {
 	gulp.start('build');

@@ -5,7 +5,7 @@ var fs = require('fs');
 var dataSource = __dirname + '/' + '../app/data/data.tsv';
 var dest = __dirname + '/../dist/static/';
 var LOG2 = Math.log(2);
-var template = fs.readFileSync(__dirname + '/' + '../app/index.html').toString();
+var template = fs.readFileSync(__dirname + '/' + '../dist/index.html').toString();
 
 try {
 	fs.mkdirSync(dest);
