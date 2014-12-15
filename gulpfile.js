@@ -60,8 +60,7 @@ gulp.task('images', function () {
 });
 
 gulp.task('fonts', function () {
-	return $.bowerFiles()
-		.pipe($.filter('app/fonts/*.{eot,svg,ttf,woff2}'))
+	return gulp.src('app/fonts/*.{eot,svg,ttf,woff2}')
 		.pipe($.flatten())
 		.pipe(gulp.dest('dist/fonts'))
 		.pipe($.size());
