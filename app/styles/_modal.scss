@@ -45,7 +45,7 @@ $modal-width: 12em;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 	box-sizing: border-box;
-	background: rgba($base-font-color, .4);
+	background: rgba($base-font-color, 1);
 	color: $base-background-color;
 	&.modal-active {
 		right: 0;
@@ -57,5 +57,6 @@ $modal-width: 12em;
 		font: inherit;
 		font-family: "Input Sans", Menlo, Consolas, monospace;
 		padding: 0;
+		resize: none;
 	}
 }

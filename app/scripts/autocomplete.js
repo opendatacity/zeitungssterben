@@ -56,7 +56,9 @@
 			source: Z.findPublication,
 			displayKey: 'title'
 		});
-		if ($tf.is('[autofocus]')) $tf.focus();
+		// We're not using the HTML5 `autofocus` attribute because that will
+		// be focused even when displayed inside a frame
+		if ($tf.hasClass('autofocus') && !Z.env.frame) $tf.focus();
 		$tf.on('typeahead:cursorchanged typeahead:selected typeahead:autocompleted',
 			function (event, publication) {
 				$(Z).trigger('Z:publicationchange', publication);
