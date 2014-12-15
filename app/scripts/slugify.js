@@ -1,14 +1,14 @@
 (function () {
 	var replacements = [
-		{ search: /ä/g, replace: 'ae' },
-		{ search: /ö/g, replace: 'oe' },
-		{ search: /ü/g, replace: 'ue' },
+		{ search: /ä/ig, replace: 'ae' },
+		{ search: /ö/ig, replace: 'oe' },
+		{ search: /ü/ig, replace: 'ue' },
 		{ search: /ß/g, replace: 'ss' },
-		{ search: /[éèê]/g, replace: 'e' },
-		{ search: /[áàâ]/g, replace: 'a' },
+		{ search: /[éèê]/ig, replace: 'e' },
+		{ search: /[áàâ]/ig, replace: 'a' },
 		{ search: /'/g, replace: '' },
-		{ search: /[^a-z]+$/g, replace: '' },
-		{ search: /[^a-z]+/g, replace: '-' },
+		{ search: /[^a-z0-9]+$/ig, replace: '' },
+		{ search: /[^a-z0-9]+/ig, replace: '-' },
 	];
 
 	function slugify (publication) {

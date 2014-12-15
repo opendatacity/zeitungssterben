@@ -10,7 +10,7 @@ var y = d3.scale.linear().range([height, 0]);
 var xAccessor = function (d) { return x(d.date); };
 var yAccessor = function (d) { return y(d.relative); };
 
-x.domain([ new Date(2001,0,1), new Date(2040,0,1) ]);
+x.domain([ new Date(2000,0,1), new Date(2040,0,1) ]);
 y.domain([ 0, 1 ]);
 
 var xAxis = d3.svg.axis().scale(x).orient('bottom');
@@ -109,7 +109,7 @@ function init () {
 function update () {
 	var duration = $('body').hasClass('photogenic')? 0 : 200;
 
-	var halfLife = (data.regression.halfLife === Infinity)? 'keine' : (Math.round(data.regression.halfLife) + ' Jahre');
+	var halfLife = (data.regression.halfLife === Infinity)? 'unbekannt' : (Math.round(data.regression.halfLife) + ' Jahre');
 
 	$('.data-sheet').removeClass('hidden').toggleClass('toggle-animation');
 	$('.js-publication-title').text(data.title);
@@ -118,8 +118,8 @@ function update () {
 	publicationLine.datum(data).transition().duration(duration)
 	.attr('d', function (d) { return line(d.copies); });
 	regressionLine.transition().duration(duration)
-	.attr('d', exponentialLine(data.regression))
-	.style('opacity', function (d) { return +(data.regression.halfLife !== Infinity); });
+	.attr('d', exponentialLine(data.regression));
+	//.style('opacity', function (d) { return +(data.regression.halfLife !== Infinity); });
 	
 	maxLabel.datum(data)
 	.transition().duration(duration)
