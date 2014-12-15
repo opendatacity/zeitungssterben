@@ -32,6 +32,8 @@ gulp.task('html', ['styles', 'scripts'], function () {
 	var jsFilter = $.filter('**/*.js');
 	var cssFilter = $.filter('**/*.css');
 
+	require('./server/static-pages');
+
 	return gulp.src('app/*.html')
 		.pipe($.useref.assets({searchPath: '{.tmp,app}'}))
 		.pipe(jsFilter)
