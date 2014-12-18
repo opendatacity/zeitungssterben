@@ -1,5 +1,4 @@
 $(function () {
-	var base = '/';
 	var initialTitle = document.title;
 
 	$(Z).on('Z:publicationchange', function (ev, publication) {
@@ -12,8 +11,8 @@ $(function () {
 
 	// Check if document was loaded with a path
 	$(Z).on('Z:ready', function (ev, publications) {
-		var initialSlug = window.location.pathname.replace(base, '');
-		if (initialSlug.length !== '') {
+		var initialSlug = window.location.pathname.split('/').pop();
+		if (initialSlug !== '') {
 			for (var i=0, l=publications.length; i<l; i++) {
 				if (initialSlug === Z.slugify(publications[i])) {
 					$(Z).trigger('Z:publicationchange', publications[i]);
