@@ -15,7 +15,7 @@ $(Z).on('Z:ready', function () {
 			// borderBottomColor: fg.alpha(.15).css()
 		// });
 
-		$('a').css({
+		$('#modals-pane a').css({
 			color: fg
 		});
 

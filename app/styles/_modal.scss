@@ -59,4 +59,10 @@ $modal-width: 12em;
 		padding: 0;
 		resize: none;
 	}
+	a:link, a:visited {
+		color: $blue;
+	}
+	a:hover, a:focus, a:active {
+		color: lighten($blue, 10%);
+	}
 }

@@ -27,7 +27,7 @@ $chart-z-index: 3;
 $form-z-index: 6;
 
 // Colors
-$blue: #477DCA;
+$blue: lighten(#477DCA, 10%);
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #DDD;
