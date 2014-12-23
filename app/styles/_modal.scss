@@ -6,7 +6,7 @@ $modal-width: 12em;
 	opacity: .4;
 	position: absolute;
 	top: 1em;
-	right: 0;
+	right: $base-spacing;
 	padding: .5em;
 	text-align: right;
 }

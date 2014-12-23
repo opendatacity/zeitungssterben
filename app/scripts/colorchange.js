@@ -10,10 +10,10 @@ $(Z).on('Z:ready', function () {
 
 		$('svg').css({ stroke: fg, fill: fg });
 
-		$('form').css({
-			backgroundColor: fg.alpha(.1).css(),
-			borderBottomColor: fg.alpha(.15).css()
-		});
+		// $('form').css({
+			// backgroundColor: fg.alpha(.1).css(),
+			// borderBottomColor: fg.alpha(.15).css()
+		// });
 
 		$('a').css({
 			color: fg

@@ -9,7 +9,7 @@ form {
 	margin: -$base-spacing;
 	padding: $base-spacing;
 
-	max-height: 70%;
+	max-height: 70vh;
 	overflow: hidden;
 
 	transition: background .1s ease;
@@ -48,7 +48,7 @@ input {
 .tt-hint, .tt-input {
 	// Fix cut-off diacritics
 	line-height: 1.3em;
-	width: calc(100% - 1.5em) !important;
+	width: calc(100% - 2.3em) !important;
 	top: -.18em !important;
 }
 .twitter-typeahead {
