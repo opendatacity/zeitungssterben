@@ -18,10 +18,11 @@ path {
 	transition: max-height .2s ease;
 }
 .axis {
+	opacity: .5;
 	&.y { display: none; }
-}
-.tick line {
-	stroke-width: 3px;
+	line, path {
+		stroke-width: 5px;
+	}
 }
 .prediction {
 	stroke-width: 4px;

@@ -76,8 +76,8 @@ function init () {
 	svg.append('text')
 	.attr('class', 'data-label max')
 	.attr('text-anchor', 'start')
-	.attr('dx', 15)
-	.attr('dy', -15);
+	.attr('dx', 10)
+	.attr('dy', -10);
 
 	svg.append('circle')
 	.attr('r', 8)
@@ -86,8 +86,8 @@ function init () {
 	svg.append('text')
 	.attr('class', 'data-label min')
 	.attr('text-anchor', 'end')
-	.attr('dx', -15)
-	.attr('dy', 40);
+	.attr('dx', -10)
+	.attr('dy', 35);
 
 	svg.append('circle')
 	.attr('r', 8)
@@ -109,7 +109,7 @@ function init () {
 function update () {
 	var duration = $('body').hasClass('photogenic')? 0 : 200;
 
-	var halfLife = (data.regression.halfLife === Infinity)? 'unbekannt' : (Math.round(data.regression.halfLife) + ' Jahre');
+	var halfLife = (data.regression.halfLife === Infinity)? 'keine' : (Math.round(data.regression.halfLife) + ' Jahre');
 
 	$('.data-sheet').removeClass('hidden').toggleClass('toggle-animation');
 	$('.js-publication-title').text(data.title);
