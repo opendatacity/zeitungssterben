@@ -4,7 +4,7 @@ d3.tsv('data/data.tsv', function (err, data) {
 
 var LOG2 = Math.log(2);
 var samplesPerYear = 4;
-var startQuarter = 9;
+var startQuarter = 0;
 var startTime = +(new Date(2001,0,1));
 function quarterToDate (quarter) {
 	var date = new Date(startTime);
@@ -17,6 +17,11 @@ function Point (quarter, value) {
 	this.date = quarterToDate(+quarter);
 	this.absolute = +value;
 }
+Point.prototype.quarterString = function () {
+	var q = 1 + (this.quarter - startQuarter) % 4;
+	var y = this.date.getFullYear();
+	return q + '. Quartal ' + y;
+};
 function Regression (publication, max) {
 	this.first = { absolute: +publication.N0 };
 	if (max) this.first.relative = this.first.absolute / max.absolute;
@@ -46,6 +51,8 @@ var publications = data.map(function (publication) {
 		copies: copies,
 		max: max,
 		min: min,
+		oldest: copies[0],
+		newest: copies[copies.length - 1],
 		regression: new Regression(publication, max)
 	};
 });

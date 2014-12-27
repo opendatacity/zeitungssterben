@@ -111,10 +111,21 @@ function update () {
 
 	var halfLife = (data.regression.halfLife === Infinity)? 'keine' : (Math.round(data.regression.halfLife) + ' Jahre');
 
+	// A warning will be shown if the data is for a publication
+	// is more than a year old. This is mainly intended to compensate the fact
+	// that we do not research which papers have ceased to be published, but
+	// is also nice as the visualisation ages.
+	var dataIsOld = new Date() - data.newest.date >= 1.57788e10;
+
+	console.log(new Date() - data.newest.date);
+	// Text eleements
 	$('.data-sheet').removeClass('hidden').toggleClass('toggle-animation');
 	$('.js-publication-title').text(data.title);
 	$('.js-publication-halflife').text(halfLife);	
+	$('.js-old-data-warning').toggleClass('hidden', !dataIsOld);
+	$('.js-old-data-value').text(data.newest.quarterString());
 
+	// Chart
 	publicationLine.datum(data).transition().duration(duration)
 	.attr('d', function (d) { return line(d.copies); });
 	regressionLine.transition().duration(duration)
