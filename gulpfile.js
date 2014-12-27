@@ -71,8 +71,8 @@ gulp.task('fonts', function () {
 gulp.task('symlink', function () {
 	var fs = require('fs');
 	try {
-		fs.chmodSync(__dirname + '/twittercards/', '755');
-		fs.symlinkSync(__dirname + '/twittercards/', 'dist/img');
+		fs.chmodSync(__dirname + '/twittercard/', '755');
+		fs.symlinkSync(__dirname + '/twittercard/', 'dist/img');
 	} catch (e) {}
 });
 
