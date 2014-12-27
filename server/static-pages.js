@@ -44,7 +44,7 @@ publications.forEach(function (publication) {
 	}
 	var title;
 	if (halfLife >= 0) title = 'Zeitungssterben? Nicht ' + accusative[article] + ' »%s«';
-	else title = 'Wann sitrbt ' + article + ' »%s«?';
+	else title = 'Wann stirbt ' + article + ' »%s«?';
 	// We need the title to stay below 70 characters
 	var allowedLength = 70 - title.length + 2 - 1; // -1 for "…" character
 	while (name.length > allowedLength) {
