@@ -68,6 +68,14 @@ gulp.task('fonts', function () {
 		.pipe($.size());
 });
 
+gulp.task('symlink', function () {
+	var fs = require('fs');
+	try {
+		fs.chmodSync(__dirname + '/twittercards/', '755');
+		fs.symlinkSync(__dirname + '/twittercards/', 'dist/img');
+	} catch (e) {}
+});
+
 gulp.task('extras', function () {
 	return gulp.src(['app/*.*', '!app/*.html'], { dot: true })
 		.pipe(gulp.dest('dist'));
@@ -77,7 +85,7 @@ gulp.task('clean', function () {
 	return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['html', 'static', 'images', 'fonts', 'data', 'extras']);
+gulp.task('build', ['html', 'static', 'images', 'fonts', 'data', 'symlink', 'extras']);
 
 gulp.task('default', ['clean'], function () {
 	gulp.start('build');
