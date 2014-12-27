@@ -18,7 +18,8 @@ var yAxis = d3.svg.axis().scale(y).orient('left');
 
 var yearlySamples = [];
 for (
-	var date=x.domain()[0], last=x.domain()[1], quarter=5;
+	// Yes, I'm a horrible person for hardcoding this
+	var date=x.domain()[0], last=x.domain()[1], quarter=-4;
 	date<=last;
 	date.setFullYear(date.getFullYear()+1)
 ) {
@@ -117,7 +118,6 @@ function update () {
 	// is also nice as the visualisation ages.
 	var dataIsOld = new Date() - data.newest.date >= 1.57788e10;
 
-	console.log(new Date() - data.newest.date);
 	// Text eleements
 	$('.data-sheet').removeClass('hidden').toggleClass('toggle-animation');
 	$('.js-publication-title').text(data.title);
