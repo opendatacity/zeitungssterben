@@ -19,7 +19,7 @@ var yAxis = d3.svg.axis().scale(y).orient('left');
 var yearlySamples = [];
 for (
 	// Yes, I'm a horrible person for hardcoding this
-	var date=x.domain()[0], last=x.domain()[1], quarter=-4;
+	var date=x.domain()[0], last=x.domain()[1], quarter=-6;
 	date<=last;
 	date.setFullYear(date.getFullYear()+1)
 ) {
