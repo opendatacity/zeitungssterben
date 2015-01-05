@@ -23,6 +23,10 @@ publications = publications.map(function (p) {
 	return r;
 });
 
+function ampersand (string) {
+	return string.replace(/&/g, '&amp;');
+}
+
 publications.forEach(function (publication) {
 	var halfLife = LOG2/publication.lambda/4;
 	var name = publication.title;
@@ -56,7 +60,7 @@ publications.forEach(function (publication) {
 
 	var html = template;
 	var properties = {
-		title: title,
+		title: ampersand(title),
 		'image:src': 'http://apps.opendatacity.de/zeitungssterben/img/' + publication.slug + '.png',
 	};
 
@@ -67,6 +71,7 @@ publications.forEach(function (publication) {
 			'<meta name="twitter:' + key + '" content="' + value + '">'
 		);
 	});
+	html = html.replace(/<title>(.*?)<\/title>/, '<title>' + ampersand(publication.title) + ': $1' + '</title>');
 
 	fs.writeFileSync(dest + publication.slug + '.html', html);
 });
