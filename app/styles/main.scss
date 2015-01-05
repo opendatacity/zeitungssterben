@@ -52,7 +52,7 @@ h2 {
 	font-size: .7em;
 	opacity: .3;
 }
-@media screen and (max-width: 1009px) {
+@media screen and (max-aspect-ratio: 3/2) {
 	.credits {
 		display: none;
 	}
