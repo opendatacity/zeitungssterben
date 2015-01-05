@@ -19,6 +19,7 @@ $modal-width: 12em;
 }
 .modal-background {
 	position: relative;
+	z-index: 1;
 	margin: -$base-spacing;
 	padding: $base-spacing;
 	&.modal-active {
@@ -27,6 +28,7 @@ $modal-width: 12em;
 }
 .modal-foreground {
 	position: fixed;
+	z-index: 2;
 	background: transparent;
 	pointer-events: none;
 	&.modal-active {
