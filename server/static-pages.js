@@ -71,7 +71,6 @@ publications.forEach(function (publication) {
 			'<meta name="twitter:' + key + '" content="' + value + '">'
 		);
 	});
-	html = html.replace(/<title>(.*?)<\/title>/, '<title>' + ampersand(publication.title) + ': $1' + '</title>');
 
 	fs.writeFileSync(dest + publication.slug + '.html', html);
 });
