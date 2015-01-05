@@ -22,8 +22,10 @@ $(function () {
 
 	// Special-purpose code for individual modal behaviour
  	$embedCode = $('#embed-code');
-	$(Z).on('Z:statechange ready', function () {
+	function updateEmbedCode () {
 		$embedCode.val($embedCode.val().replace(/src=".*?"/, 'src="' + window.location + '"'));
-	});
+	}
+	$(Z).on('Z:statechange ready', updateEmbedCode);
+	updateEmbedCode();
 	$embedCode.focus(function () { $embedCode.select(); });
 });
