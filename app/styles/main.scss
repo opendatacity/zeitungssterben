@@ -45,16 +45,22 @@ h2 {
 	display: none;
 }
 .credits {
-	display: none;
 	position: absolute;
-	bottom: -5%;
-	right: 0;
+	right: $base-spacing;
+	bottom: 0;
+	line-height: 1;
 	font-size: .7em;
 	opacity: .3;
+}
+@media screen and (max-width: 1009px) {
+	.credits {
+		display: none;
+	}
 }
 .is-framed {
 	height: 95%;
 	.credits {
+		bottom: -5%;
 		display: block;
 	}	
 }
