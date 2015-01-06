@@ -57,17 +57,9 @@ function init () {
 	isInitialized = true;
 
 	svg.append('path')
-	.attr('class', 'line data background')
-	// .attr('filter', 'url(#svg-filter-glow)');
-
-	svg.append('path')
 	.attr('class', 'line data foreground');
 
 	publicationLine = svg.selectAll('.data');
-
-	svg.append('path')
-	.attr('class', 'line prediction background')
-	// .attr('filter', 'url(#svg-filter-glow)');
 
 	svg.append('path')
 	.attr('class', 'line prediction foreground');
