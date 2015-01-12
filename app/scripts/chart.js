@@ -92,8 +92,8 @@ function init () {
 	var $header = $('form');
 	$(window).on('resize keyup typeahead:closed', function () {
 		var bottom = $header.outerHeight();
-		var availableHeight = $(window).height() - bottom;
-		$('#main-chart').css('max-height', availableHeight);
+		var availableHeight = $('body').outerHeight() - bottom;
+		$('#main-chart').css('max-height', availableHeight*.98);
 	});
 
 	return true;
