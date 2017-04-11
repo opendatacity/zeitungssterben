@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Zeitungssterben</title>
+		<meta name="description" content="Wie schnell sterben die deutschen Zeitungen? Wir vergleichen die IVW-Auflagendaten seit 2001 – und sind vom Ergebnis überrascht: während manche ums Überleben bangen, verdoppeln andere ihre Auflage.">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@opendatacity">
+		<meta name="twitter:creator" content="@opendatacity">
+		<meta name="twitter:title" content="Wann stirbt die »Rheinpfalz«?">
+		<meta name="twitter:description" content="Wie schnell sterben die deutschen Zeitungen? Wir vergleichen die IVW-Auflagendaten seit 2001 – und sind vom Ergebnis überrascht: während manche ums Überleben bangen, verdoppeln andere ihre Auflage.">
+		<meta name="twitter:image:src" content="http://apps.opendatacity.de/zeitungssterben/img/die-rheinpfalz.png">
+
+		<link rel="stylesheet" href="styles/main.css">
+
+	</head>
+	<body>
+		<div class="modal-foreground">
+			<aside id="embed" class="modal">
+				<h2>Einbetten</h2>
+				<p>Wir freuen uns, wenn Sie unsere Visualisierung in Ihrer Veröffentlichung einbetten möchten. Bitte nutzen Sie dafür folgenden Code:</p>
+				<p><textarea id="embed-code" rows="8" readonly>&lt;iframe src=&quot;&quot; width=&quot;600&quot; height=&quot;500&quot; style=&quot;width: 100%; border: 0;&quot;&gt;&lt;/iframe&gt;</textarea></p>
+			</aside>
+			<aside id="about" class="modal">
+				<h2>Erläuterungen</h2>
+				<p>Unsere Visualisierung zeigt die durchschnittlichen Verbreitungszahlen aller deutschen Zeitungen und Zeitschriften, die ihre Auflagenzahlen an die IVW melden und seit 2001 mindestens einmal eine Auflage von über 25&thinsp;000 Exemplaren hatten. Die Daten zeigen den Durchschnitt aller Auflagen in einem Quartal.</p>
+				<p>Wir projizieren die Auflagenzahlen in die Zukunft und berechnen, wie lange es dauert, bis eine Publikation die Hälfte ihrer Auflage verliert.</p>
+				<p>Genauer erklären wir unsere Methode mit ihren Stärken und Schwächen in unserem <a href="https://opendatacity.de/der-zerfall-der-printmedien/">Blogartikel <em>Der Zerfall der Printmedien</em></a>.</p>
+				<h2>Quellcode</h2>
+				<p><a href="https://github.com/opendatacity/zeitungssterben/" title="Quellcode dieses Projektes auf GitHub" target="_top">Wir stellen den Quellcode dieses Projektes auf GitHub unter einer MIT-Lizenz zur Verfügung.</a></p>
+			</aside>
+		</div>
+
+		<div class="modal-background">
+			<section id="controls">
+				<form action="">
+					<svg width="40px" height="40px" viewBox="0 0 40 40" class="icon-search">
+						<path d="M30.038,26.003l-0.707,0.707l-2.505-2.505C28.808,21.662,30,18.474,30,15c0-8.284-6.716-15-15-15S0,6.716,0,15 c0,8.284,6.716,15,15,15c3.729,0,7.133-1.369,9.757-3.621l2.453,2.453l-0.707,0.707l9.712,9.712l3.536-3.536L30.038,26.003z M3,15 C3,8.373,8.373,3,15,3s12,5.373,12,12c0,6.627-5.373,12-12,12S3,21.627,3,15z" />
+					</svg>
+
+					<input type="text" id="tf-publication" placeholder="Nach Titel suchen" class="autofocus">
+					<p class="data-sheet hidden"><strong>Halbwertszeit</strong> <span class="js-publication-halflife"></span> <span class="js-old-data-warning"><strong>— letzte Daten:</strong> <span class="js-old-data-value"></span></span></p>
+				</form>
+			</section>
+
+			<section id="drawing-area">
+				<svg preserveAspectRatio="xMidYMin" id="main-chart">
+				</svg>
+			</section>
+
+			<section id="modals-pane">
+				<nav>
+					<ul>
+						<li class="embed"><a href="#embed">Einbetten</a></li>
+						<li class="about"><a href="#about"><span>Erläuterungen</span></a></li>
+					</ul>
+				</nav>
+			</section>
+			<p class="credits">Ein Projekt von <a href="https://opendatacity.de" target="_top">OpenDataCity</a></p>
+		</div>
+
+		<script src="scripts/vendor.js"></script>
+
+		<script>var Z = {};</script>
+		<script src="scripts/main.js"></script>
+</body>
+</html>
